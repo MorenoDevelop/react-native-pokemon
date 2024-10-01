@@ -64,6 +64,7 @@ const Pokedex = () => {
                         onTouchEnd={() => getPokemons(pokemonsNextPage)}
                         ListFooterComponent={() => <Loader/>}
                         columnWrapperStyle={{justifyContent: 'space-between'}}
+                        showsVerticalScrollIndicator={false}
                     />
                 </View>
 

@@ -14,7 +14,7 @@ const PokedexItem = ({id, name}) => {
             width: '32%',
             alignItems: 'center',
             paddingVertical: 10,
-            borderRadius: 5,
+            borderRadius: 10,
             backgroundColor: colors.backgroundSecondary,
             shadowColor: "#000",
             shadowOffset: {
@@ -23,7 +23,6 @@ const PokedexItem = ({id, name}) => {
             },
             shadowOpacity: 0.30,
             shadowRadius: 4.65,
-
             elevation: 8,
         },
         image: {

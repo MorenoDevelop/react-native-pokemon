@@ -1,12 +1,17 @@
 import React from 'react';
-import {SafeAreaView,} from 'react-native'
+import {SafeAreaView} from 'react-native'
+import { NavigationContainer, useNavigationState, useRoute } from '@react-navigation/native'
 
-import Pokedex from "./src/views/pokedex";
+import Router from './src/router/router'
 
 function App(): React.JSX.Element {
 
   return (
-      <Pokedex/>
+      <SafeAreaView style={{flex: 1}}>
+        <NavigationContainer>
+          <Router/>
+        </NavigationContainer>
+      </SafeAreaView>
   );
 }
 
