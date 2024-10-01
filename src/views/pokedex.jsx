@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {StyleSheet, View, Image, Text, FlatList, ImageBackground} from 'react-native';
 
 import PokedexItem from '../components/pokedexItem';
+import Loader from '../components/loader';
 
 import {getPokemonsByPage} from '../services/pokemons';
 
@@ -61,6 +62,7 @@ const Pokedex = () => {
                         renderItem={({item, index}) => renderItem(item, index)}
                         numColumns={3}
                         onTouchEnd={() => getPokemons(pokemonsNextPage)}
+                        ListFooterComponent={() => <Loader/>}
                         columnWrapperStyle={{justifyContent: 'space-between'}}
                     />
                 </View>
