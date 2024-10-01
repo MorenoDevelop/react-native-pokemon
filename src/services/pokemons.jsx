@@ -9,3 +9,13 @@ export const getPokemonsByPage = (url) => {
         })
     })
 }
+
+export const getPokemonById = (id) => {
+    return new Promise((resolve, reject) => {
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => {
+            resolve(res)
+        }).catch(err => {
+            reject(err)
+        })
+    })
+}

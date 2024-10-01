@@ -1,12 +1,31 @@
 import React, {useState, useEffect} from 'react'
-import {StyleSheet, View, Image, Text, FlatList} from 'react-native';
-import axios from 'axios';
+import {StyleSheet, View, Image, Text, FlatList, ImageBackground} from 'react-native';
 
 import PokedexItem from '../components/pokedexItem';
 
 import {getPokemonsByPage} from '../services/pokemons';
 
+import colorsTheme from '../styles/colors';
+
 const Pokedex = () => {
+    const colors = colorsTheme()
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            backgroundColor: colors.backgroundPrimary
+        },
+        containerList: {
+            flex: 1,
+            width: '100%',
+            alignItems: 'center'
+        },
+        list: {
+            width: '95%',
+            gap: 20
+        }
+    })
+
+
     const [pokemons, setPokemons] = useState([])
     const [pokemonsNextPage, setPokemonsNextPage] = useState(null)
 
@@ -34,27 +53,20 @@ const Pokedex = () => {
 
 
     return (
-        <View style={styles.container}>
-            <FlatList
-                data={pokemons}
-                renderItem={({item, index}) => renderItem(item, index)}
-                numColumns={3}
-                onTouchEnd={() => getPokemons(pokemonsNextPage)}
+            <View style={styles.container}>
+                <View style={styles.containerList}>
+                    <FlatList
+                        contentContainerStyle={styles.list}
+                        data={pokemons}
+                        renderItem={({item, index}) => renderItem(item, index)}
+                        numColumns={3}
+                        onTouchEnd={() => getPokemons(pokemonsNextPage)}
+                        columnWrapperStyle={{justifyContent: 'space-between'}}
+                    />
+                </View>
 
-                columnWrapperStyle={{justifyContent: 'space-between'}}
-                contentInset={{ right: '5%', top: 0, left: '5%', bottom: 0 }}
-            />
-        </View>
+            </View>
     )
 }
 
 export default Pokedex
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    list: {
-        width: '95%'
-    }
-})
