@@ -4,10 +4,13 @@ import { NavigationContainer, useNavigationState, useRoute } from '@react-naviga
 
 import Router from './src/router/router'
 
+import colorsTheme from "./src/styles/colors";
+
 function App(): React.JSX.Element {
+    const colors = colorsTheme()
 
   return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: colors.backgroundPrimary}}>
         <NavigationContainer>
           <Router/>
         </NavigationContainer>
